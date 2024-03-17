@@ -194,98 +194,29 @@
         </p>
         <br>
       </div>
-      <hr>
-      <div class="columns is-multiline" style="justify-content: center;">
-        <div class="column is-one-third" style="display: flex; flex-direction: column; align-items: center;">
-          <figure class="image" style="display: flex; justify-content: center; align-items: center; margin: auto;">
-            <img src="./static/gif/slide.gif" alt="GIF 1" style="width: 300px; height: 200px; border-radius: 25px;">
-          </figure>
-          <h3 class="title is-5" style="text-align: center;">Sliding Skill</h3>
-          <p style="text-align: justify;">Skill network learns to determine the displacement and velocity of a sliding
-            box with given initial velocity at any time queried on a rough plane</p>
-        </div>
-        <div class="column is-one-third" style="display: flex; flex-direction: column; align-items: center;">
-          <figure class="image" style="display: flex; justify-content: center; align-items: center; margin: auto;">
-            <img src="./static/gif/projectile.gif" alt="GIF 2"
-              style="width: 300px; height: 200px; border-radius: 25px;">
-          </figure>
-          <h3 class="title is-5" style="text-align: center;">Throwing Skill</h3>
-          <p style="text-align: justify;">Skill network learns to determine the location and velocity of ball thrown
-            with
-            given initial angle and velocity at any time queried.</p>
-        </div>
-        <div class="column is-one-third" style="display: flex; flex-direction: column; align-items: center;">
-          <figure class="image" style="display: flex; justify-content: center; align-items: center; margin: auto;">
-            <img src="./static/gif/pendulum.gif" alt="GIF 3" style="width: 300px; height: 200px; border-radius: 25px;">
-          </figure>
-          <h3 class="title is-5" style="text-align: center;">Swinging Skill</h3>
-          <p style="text-align: justify;">Skill network learns to determine angular position and angular velocity of
-            pendulum at any time queried with given initial angular position.</p>
-        </div>
-      </div>
-      <!-- Second Row of GIFs -->
-      <div class="columns is-multiline" style="justify-content: center;">
-        <div class="column is-one-third" style="display: flex; flex-direction: column; align-items: center;">
-          <figure class="image" style="display: flex; justify-content: center; align-items: center; margin: auto;">
-            <img src="./static/gif/peg.gif" alt="GIF 4" style="width: 300px; height: 200px; border-radius: 25px;">
-          </figure>
-          <h3 class="title is-5" style="text-align: center;">Hitting Skill</h3>
-          <p style="text-align: justify;">Skill network learns to determine velocity of puck just after it gets hit by a
-            swinging pendulum.</p>
-        </div>
-        <div class="column is-one-third" style="display: flex; flex-direction: column; align-items: center;">
-          <figure class="image" style="display: flex; justify-content: center; align-items: center; margin: auto;">
-            <img src="./static/gif/bounce.gif" alt="GIF 5" style="width: 300px; height: 200px; border-radius: 25px;">
-          </figure>
-          <h3 class="title is-5" style="text-align: center;">Bouncing Skill</h3>
-          <p style="text-align: justify;">Skill network learns to determine velocity of ball just after it bounces a
-            wedge.</p>
-        </div>
-      </div>
-      <hr>
-      <div class="columns is-centered is-vcentered">
-        <!-- Text Column -->
-        <div class="column is-half has-text-justified">
-          <p>
-            <i><b>The skill learning model is based on a neural network that predicts the object's state during dynamic
-                interaction continuously parameterised by time.</i></b> The figure on the side shows the predicted
-            positions of the ball plotted against time in the Bounce Task. Such interactions can be simulated in a
-            physics engine by using
-            numerical integration schemes.
-            However, since we aim to perform multi-step interactions, simulating outcomes during training is often
-            intractable. Hence, we adopt a learning-based approach and learn a function which predicts the object's
-            state during dynamic interaction continuously parameterised by time.
-            For certain skills like swining, sliding and throwing we levarage the known governing physics equations and
-            employ a physics-informed loss function in neural network to constrain the latent space, these are called as
-            Physics-Informed Skill Networks.
-            However, skills like bouncing and hitting are learnt directly from data because of complex and intractable
-            physics.
-          </p>
-        </div>
-        <!-- Image Column -->
-        <div class="column is-half">
-          <img src="./static/images/bounce_chain_0.5.png" width="1499" height="976"
-            style="border-radius: 25px; border: 2px solid #000000;" />
-        </div>
-      </div>
-      <!-- <div class="has-text-justified">
-        <p>
-          The skill learning model is based on a neural network that predicts the object's state during dynamic
-          interaction continuously parameterised by time. Such interactions can be simulated in a physics engine by
-          using numerical integration schemes.
-          However, since we aim to perform multi-step interactions, simulating outcomes during training is often
-          intractable. Hence, we adopt a learning-based approach and learn a function which predicts the object's
-          state during dynamic interaction continuously parameterised by time.
-          For certain skills like swining, sliding and throwing we levarage the known governing physics equations and
-          employ a physics-informed loss function in neural network to constrain the latent space, these are called as
-          Physics-Informed Skill Networks.
-          However, skills like bouncing and hitting are learnt directly from data because of complex and intractable
-          physics.
-        </p>
-      </div> -->
     </div>
   </section>
 
+  <section class="section">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3" style="text-align: center;">ActNeRF in Action</h2>
+        <div class="columns is-centered is-vcentered" , padding-left: 7%;">
+          <!-- Image Column -->
+          <div>
+            <img src="./static/images/run.png"
+              <!-- style="border-radius: 25px; border: 2px solid #555555;" />
+          </div>
+          <!-- Text Column -->
+          </div>
+      <div class="has-text-justified">
+        <p>
+          We show the RGB images and uncertainty maps rendered from trained models during our active learning process. The GT images are shown for reference. We note from the figure that before flipping, the bottom surface of the object has high uncertainty, which only diminishes once we perform the flip and acquire information about the bottom surface. The robot then uses the acquired object model to manipulate the object in any orientation.
+        </p>
+        <br>
+      </div>
+    </div>
+  </section>
+<!-- 
   <section class="section">
     <div class="container is-max-desktop">
       <h2 class="title is-3 has-text-centered">Physical Reasoning Tasks</h2>
@@ -368,18 +299,41 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 
   <section class="section">
     <div class="container is-max-desktop">
       <h2 class="title is-3 has-text-centered">Comparison with the Baseline</h2>
       <div class="column has-text-justified">
         <p>
-          Below is a qualitative comparison with the baseline "DQN-Adaptive" (adapted from <a href="https://phyre.ai/"
-            class="external-link is-normal">[Bakhtin et al., 2019]</a>) which a Deep Q-Network trained on a set of
-          observation-action-reward triplets minimizing the cross-entropy between the soft prediction and the observed
-          reward. DQN-Adaptive also uses the same algorithm as ActNeRF for online learning (<a href="#tasks">here</a>)
+          Below is a quantitative comparison with the baseline "ActivNeRF" [Pan et. al., 2022] which integrates the uncertainty estimation into the NeRF pipeline itself. It uses MLE loss in addition with MSE loss used by vanilla NeRF to learn the uncertainty associated with each point in 3D space. It solves the problem of next-best-view as a purely visual problem, hence, it does not have a notion of action costs and doesn't consider any physical interation actions. While comparing we incorporate a Flip() action in ActiveNeRF to have a fair comparison for the cases when Flip() action is allowed. 
         </p>
+      </div>
+      <hr>
+      <h3 class="title is-4 has-text-centered"><span class="dnerf">Grasping Performance Analysis</span></h3>
+      <div class="columns is-centered is-vcentered">
+        <div class="column is-half has-text-justified">
+          <p>
+            <i><b>The skill learning model is based on a neural network that predicts the object's state during dynamic
+                interaction continuously parameterised by time.</i></b> The figure on the side shows the predicted
+            positions of the ball plotted against time in the Bounce Task. Such interactions can be simulated in a
+            physics engine by using
+            numerical integration schemes.
+            However, since we aim to perform multi-step interactions, simulating outcomes during training is often
+            intractable. Hence, we adopt a learning-based approach and learn a function which predicts the object's
+            state during dynamic interaction continuously parameterised by time.
+            For certain skills like swining, sliding and throwing we levarage the known governing physics equations and
+            employ a physics-informed loss function in neural network to constrain the latent space, these are called as
+            Physics-Informed Skill Networks.
+            However, skills like bouncing and hitting are learnt directly from data because of complex and intractable
+            physics.
+          </p>
+        </div>
+        <!-- Image Column -->
+        <div class="column is-half">
+          <img src="./static/images/bounce_chain_0.5.png" width="1499" height="976"
+            style="border-radius: 25px; border: 2px solid #000000;" />
+        </div>
       </div>
       <hr>
       <div class="content">
