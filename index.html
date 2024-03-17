@@ -49,6 +49,7 @@
                 <!-- <span class="author-block"><sup>1</sup>Work primarily done when at IIT Delhi, </span> -->
                 <!-- <span class="author-block"><sup>2</sup>Affiliated with IIT Delhi, </span> -->
                 <span class="author-block"><sup>*</sup>Indicate equal contribution, </span>
+                <span class="author-block"><sup></sup>Indian Institute of Technology Delhi, </span>
                 <!-- <span class="author-block"><sup>#</sup>Indicate equal advising, </span> -->
               </div>
 
@@ -114,8 +115,7 @@
 
   <div class="container is-max-desktop has-text-centered">
     <h2 class="subtitle" , style="max-width: 90%; padding-left: 10%;">
-      <span class="dnerf">ActNeRF</span> is a novel physics-informed planning framework based on accelerated
-      learning of Physical Reasoning Tasks using Physics Informed Skill Networks.
+      <span class="dnerf">ActNeRF</span> is an approach to learn complete 3D object models using robot manipulators leveraging contact based interactions with the robot to re-orient objects to expose occluded surfaces during training.
     </h2>
   </div>
 
@@ -314,115 +314,33 @@
       <div class="columns is-centered is-vcentered">
         <div class="column is-half has-text-justified">
           <p>
-            <i><b>The skill learning model is based on a neural network that predicts the object's state during dynamic
-                interaction continuously parameterised by time.</i></b> The figure on the side shows the predicted
-            positions of the ball plotted against time in the Bounce Task. Such interactions can be simulated in a
-            physics engine by using
-            numerical integration schemes.
-            However, since we aim to perform multi-step interactions, simulating outcomes during training is often
-            intractable. Hence, we adopt a learning-based approach and learn a function which predicts the object's
-            state during dynamic interaction continuously parameterised by time.
-            For certain skills like swining, sliding and throwing we levarage the known governing physics equations and
-            employ a physics-informed loss function in neural network to constrain the latent space, these are called as
-            Physics-Informed Skill Networks.
-            However, skills like bouncing and hitting are learnt directly from data because of complex and intractable
-            physics.
+            <i>We analyze the quality of the acquired models using a manipulation task, where the object
+              is placed at a random pose in the workspace and the robot has to attempt a grasp using the 
+              learned models. In the figure we show the task success
+              rate and failure scenarios. Active denotes vanilla ActiveNeRF [Pan et al.] trained on
+              captured images without segmentation and with no Flip() action. S
+              denotes object segmentation, F denotes possibility of Flip() action
           </p>
         </div>
         <!-- Image Column -->
-        <div class="column is-half">
-          <img src="./static/images/bounce_chain_0.5.png" width="1499" height="976"
+        <div class="column ">
+          <img src="./static/images/gsr.png" width="1976" height="976"
             style="border-radius: 25px; border: 2px solid #000000;" />
         </div>
       </div>
-      <hr>
-      <div class="content">
-        <h3 class="title is-4 has-text-centered"><span class="dnerf">DQN-Adaptive</span></h3>
-        <div class="columns is-centered is-vcentered">
-          <!-- Image Column -->
-          <div class="column is-one-third">
-            <img src="./static/images/bridge_dqn-comp/DQN-1.png" width="400" height="300"
-              style="border-radius: 25px;" />
-            <p class="teaser has-text-centered">
-              <span class="dnerf">DQN-Adaptive</span>: Action 1
-            </p>
-          </div>
-          <div class="column is-one-third">
-            <img src="./static/images/bridge_dqn-comp/DQN-4.png" width="400" height="300"
-              style="border-radius: 25px;" />
-            <p class="teaser has-text-centered">
-              <span class="dnerf">DQN-Adaptive</span>: Action 4
-            </p>
-          </div>
-          <div class="column is-one-third">
-            <img src="./static/images/bridge_dqn-comp/DQN-11.png" width="400" height="300"
-              style="border-radius: 25px;" />
-            <p class="teaser has-text-centered">
-              <span class="dnerf">DQN-Adaptive</span>: Action 11
-            </p>
-          </div>
-        </div>
-        <!-- Subtitle Section -->
-        <p class="teaser has-text-justified">
-          <span class="dnerf">DQN-Adaptive</span> (Baseline) executes actions in sequence while learning the difference
-          in the predicted reward for an action and the actual reward. However, it does not use the bridge even after 11
-          attempts which is needed to land the ball further closer to the goal.
-        </p>
-      </div>
-      <div class="content">
-        <h3 class="title is-4 has-text-centered"><span class="dnerf">ActNeRF</span></h3>
-        <div class="columns is-centered is-vcentered">
-          <!-- Image Column -->
-          <div class="column is-one-third">
-            <img src="./static/images/bridge_dqn-comp/ActNeRF_1.png" width="400" height="300"
-              style="border-radius: 25px;" />
-            <p class="teaser has-text-centered">
-              <span class="dnerf">ActNeRF</span>: Action 1
-            </p>
-          </div>
-          <div class="column is-one-third">
-            <img src="./static/images/bridge_dqn-comp/ActNeRF_2.png" width="400" height="300"
-              style="border-radius: 25px;" />
-            <p class="teaser has-text-centered">
-              <span class="dnerf">ActNeRF</span>: Action 2
-            </p>
-          </div>
-          <div class="column is-one-third">
-            <img src="./static/images/bridge_dqn-comp/ActNeRF_4.png" width="400" height="300"
-              style="border-radius: 25px;" />
-            <p class="teaser has-text-centered">
-              <span class="dnerf">ActNeRF</span>: Action 4
-            </p>
-          </div>
-        </div>
-        <!-- Subtitle Section -->
-        <p class="teaser has-text-justified">
-          <span class="dnerf">ActNeRF</span> executes actions in sequence while learning the difference in the predicted
-          reward for an action and the actual reward. It does not use the bridge in the first attempt because
-          of errors in prediction. However, it quickly realises the need of the bridge in the second attempt. Further,
-          it chooses appropriate actions to land the ball in the goal in just the fourth attempt. Note that the robot
-          learns to use the bridge effectively; a physical reasoning task reported earlier <a
-            href="https://arxiv.org/abs/1907.09620" class="external-link is-normal">[Allen et al., 2020]</a> to be
-          challenging to learn for model-free methods, highlighting ActNeRF’s adaptability to long-horizon tasks.
-        </p>
-      </div>
-    </div>
-  </section>
+      
+  
 
-  <hr>
 
   <section class="section" id="References">
     <div class="container is-max-desktop content">
       <h2 class="title">References</h2>
-      <pre><code>1. [Allen et al., 2020] Kelsey R Allen, Kevin A Smith, and Joshua B Tenenbaum.
-        Rapid trial-and-error learning with simulation supports flexible tool use and physical reasoning.
-        Proceedings of the National Academy of Sciences, 117(47):29302–29310, 2020.</code></pre>
-      <pre><code>2. [Bakhtin et al., 2019] Anton Bakhtin, Laurens van der Maaten, Justin Johnson, Laura Gustafson, and Ross Girshick.
-        Phyre: A new benchmark for physical reasoning.
-        Advances in Neural Information Processing Systems, 32,484 2019.</code></pre>
+      <pre><code>1. [Pan et al., 2022] Pan, X., Lai, Z., Song, S., & Huang, G. (2022, October).
+         Activenerf: Learning where to see with uncertainty estimation. 
+         In European Conference on Computer Vision (pp. 230-246). Cham: Springer Nature Switzerland.</code></pre>
     </div>
   </section>
-
+<!-- 
   <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
       <h2 class="title">Citation</h2>
@@ -433,7 +351,7 @@
       year      = {2024}
     }</code></pre>
     </div>
-  </section>
+  </section> -->
 
 
   <footer class="footer">
