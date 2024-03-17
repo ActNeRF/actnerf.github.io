@@ -306,7 +306,7 @@
       <h2 class="title is-3 has-text-centered">Comparison with the Baseline</h2>
       <div class="column has-text-justified">
         <p>
-          Below is a quantitative comparison with the baseline "ActivNeRF" [Pan et. al., 2022] which integrates the uncertainty estimation into the NeRF pipeline itself. It uses MLE loss in addition with MSE loss used by vanilla NeRF to learn the uncertainty associated with each point in 3D space. It solves the problem of next-best-view as a purely visual problem, hence, it does not have a notion of action costs and doesn't consider any physical interation actions. While comparing we incorporate a Flip() action in ActiveNeRF to have a fair comparison for the cases when Flip() action is allowed. 
+          Below is a quantitative comparison with the baseline "ActivNeRF" [Pan et. al., 2022] which integrates the uncertainty estimation into the NeRF pipeline itself. It optimizes MLE loss in addition with MSE loss used by vanilla NeRF to learn the uncertainty associated with each point in 3D space. It solves the problem of next-best-view as a purely visual problem, hence, (i) it learns the whole model of the scene instead of just the object, (ii) it does not have a notion of action costs and (iii) it doesn't consider any physical interaction with the object. While comparing we incorporate a Flip() action in ActiveNeRF for the experiments when Flip() action is allowed. 
         </p>
       </div>
       <hr>
